@@ -21,6 +21,21 @@ function App() {
   }
   const defaultName = '                    '.split('');
 
+  const [ cardCCV, setCardCCV ] = React.useState('');
+  const handleCCVChange = (event) => {
+    var val = event.target.value;
+    if(val.length < 4){
+      setCardCCV(val);
+    }
+  }
+  const [ isCCVFocused, setIsCCVFocused ] = React.useState(false);
+  const handleCCVFocus = () => {
+    setIsCCVFocused(true);
+  }
+  const handleCCVBlur = () => {
+    setIsCCVFocused(false);
+  }
+
   return (
     <div className="App">
 
@@ -59,6 +74,9 @@ function App() {
 
       <br />
       <input value={cardName} onChange={handleNameChange} placeholder="nombre" />
+
+      <br />
+      <input value={cardCCV} onChange={handleCCVChange} onFocus={handleCCVFocus} onBlur={handleCCVBlur} />
     </div>
   );
 }
