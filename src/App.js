@@ -18,11 +18,18 @@ function App() {
       <div>
         {defaultDigits.map((char, index) => {
           var digit = cardNumber[index];
-          console.log(digit);
+          var isPrivate = false;
+          if(index > 4 && index < 14){
+            isPrivate = true;
+          }
+          /*var isPrivate = index > 4 && index < 14;*/
           if(char == ' '){
             return <span style={{ marginLeft: 10 }}> </span>;
           } else {
-            return <CardDigit value={digit} default={char} />;
+            return <CardDigit
+              private={isPrivate}
+              value={digit}
+              default={char} />;
           }
         })}
       </div>

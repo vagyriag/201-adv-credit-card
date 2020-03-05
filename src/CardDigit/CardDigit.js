@@ -6,14 +6,14 @@ const CardDigit = (props) => {
     
     return <span className="CardDigit">
         {!props.value && <span>{props.default || '#'}</span>}
-        <span>{props.value}</span>
+        {props.value && <span>{props.private ? '*' : props.value}</span>}
     </span>
 }
 
 CardDigit.propTypes = {
     value: PropTypes.number,
     default: PropTypes.string,
-    private: PropTypes.string,
+    private: PropTypes.bool,
 }
 
 export default CardDigit;
