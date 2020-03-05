@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import './CardDigit.css';
 
 const CardDigit = (props) => {
-    
-    return <span className="CardDigit">
-        {!props.value && <span>{props.default || '#'}</span>}
-        {props.value && <span>{props.private ? '*' : props.value}</span>}
+    var className = 'CardDigit';
+    if(props.value){
+        className += ' CardDigit--filled';
+    }
+    return <span className={className}>
+        <span className="CardDigit__default">{props.default || '#'}</span>
+        <span className="CardDigit__value">{props.private ? '*' : props.value}</span>
     </span>
 }
 
