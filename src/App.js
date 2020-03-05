@@ -1,24 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
+import CardNumber from './CardNumber/CardNumber';
 import './App.css';
+import CardDigit from './CardDigit/CardDigit';
 
 function App() {
+  const [ cardNumber, setCardNumber ] = React.useState('');
+
+  const handleCardNumberChange = (newText) => {
+    setCardNumber(newText);
+  }
+
+  const defaultDigits = '#### #### #### ####'.split('');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div>
+        {defaultDigits.map((char, index) => {
+          var digit = cardNumber[index];
+          console.log(digit);
+          if(char == ' '){
+            return <span style={{ marginLeft: 10 }}> </span>;
+          } else {
+            return <CardDigit value={digit} default={char} />;
+          }
+        })}
+      </div>
+
+      <CardNumber
+        onTextChange={handleCardNumberChange}
+        value={cardNumber} />
     </div>
   );
 }
