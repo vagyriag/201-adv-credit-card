@@ -1,5 +1,4 @@
 .CardDigit{
-    border: 1px solid red;
     position: relative;
     width: 1em;
     height: 1.5em;
@@ -9,13 +8,13 @@
 }
 
 .CardDigit__default{
-    height: 100%;
+    min-height: 100%;
     transition: all .4s ease;
     opacity: 1;
 }
 
 .CardDigit__value{
-    height: 100%;
+    min-height: 100%;
     transition: all .4s ease;
 }
 

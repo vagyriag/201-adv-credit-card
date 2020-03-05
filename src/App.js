@@ -12,6 +12,15 @@ function App() {
 
   const defaultDigits = '#### #### #### ####'.split('');
 
+  const [ cardName, setCardName ] = React.useState('');
+  const handleNameChange = (event) => {
+    var val = event.target.value;
+    if(val.length < defaultName.length){
+      setCardName(val);
+    }
+  }
+  const defaultName = '                    '.split('');
+
   return (
     <div className="App">
 
@@ -34,9 +43,22 @@ function App() {
         })}
       </div>
 
+      <div>
+        {defaultName.map((char, index) => {
+          var letter = cardName[index];
+          if(letter) {
+            letter = letter.toUpperCase();
+          }
+          return <CardDigit value={letter} default={char} />
+        })}
+      </div>
+
       <CardNumber
         onTextChange={handleCardNumberChange}
         value={cardNumber} />
+
+      <br />
+      <input value={cardName} onChange={handleNameChange} placeholder="nombre" />
     </div>
   );
 }
