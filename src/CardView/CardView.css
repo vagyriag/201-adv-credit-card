@@ -1,0 +1,9 @@
+.CardView{
+    padding: 20px;
+    background-color: lightcoral;
+    transition: all .6s ease-in-out;
+}
+
+.CardView--back{
+    transform: perspective(2000px) rotateY(180deg) rotateX(0deg) rotate(0deg);
+}

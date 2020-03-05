@@ -2,6 +2,7 @@ import React from 'react';
 import CardNumber from './CardNumber/CardNumber';
 import './App.css';
 import CardDigit from './CardDigit/CardDigit';
+import CardView from './CardView/CardView';
 
 function App() {
   const [ cardNumber, setCardNumber ] = React.useState('');
@@ -39,34 +40,12 @@ function App() {
   return (
     <div className="App">
 
-      <div>
-        {defaultDigits.map((char, index) => {
-          var digit = cardNumber[index];
-          var isPrivate = false;
-          if(index > 4 && index < 14){
-            isPrivate = true;
-          }
-          /*var isPrivate = index > 4 && index < 14;*/
-          if(char == ' '){
-            return <span style={{ marginLeft: 10 }}> </span>;
-          } else {
-            return <CardDigit
-              private={isPrivate}
-              value={digit}
-              default={char} />;
-          }
-        })}
-      </div>
-
-      <div>
-        {defaultName.map((char, index) => {
-          var letter = cardName[index];
-          if(letter) {
-            letter = letter.toUpperCase();
-          }
-          return <CardDigit value={letter} default={char} />
-        })}
-      </div>
+      <CardView
+        defaultDigits={defaultDigits}
+        cardNumber={cardNumber}
+        defaultName={defaultName}
+        cardName={cardName}
+        isCCVFocused={isCCVFocused} />
 
       <CardNumber
         onTextChange={handleCardNumberChange}
