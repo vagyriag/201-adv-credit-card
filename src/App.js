@@ -3,6 +3,7 @@ import './App.css';
 import CreditCard from './CreditCard/CreditCard';
 import Will from './Will/Will';
 import { HashRouter, Route, Link } from 'react-router-dom';
+// import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 function App() {
   
